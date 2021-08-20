@@ -27,30 +27,10 @@
     <body class="text-center">
       <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1" nonce="nCJ1Buga"></script>
-      <script>
-        window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '{534968161160578}',
-    cookie     : true,
-    xfbml      : true,
-    version    : '{v11.0}'
-  });
-    
-  FB.AppEvents.logPageView();   
-    
-};
+ 
+ 
 
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "https://connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
-
-      </script>
-  <form action="main.html" class="signin"> 
+   <form action="main.html" class="signin"> 
     <!-- Titulo -->
 
     <!-- Logo De Empresa -->
@@ -65,7 +45,10 @@
  <input type="submit" id="botonEnvio"value="Login">
  <br>
  <br>
- <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+ <fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
    </form>
   
    
