@@ -9,7 +9,7 @@ body {
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #f5f5f5;
+    background-color: #fbf598;
   }
 
   .signin {
@@ -17,7 +17,20 @@ body {
     max-width: 330px;
     padding: 15px;
     margin: auto;
+    /*Este codigo fue reutilizado de la fuente de codigo de mercadolibre.*/
+    /*Se encarga de enmarcar correctamente el login dentro de la caja que contiene el formulario y darle el estilo visual
+    de caja o sección.*/
+    margin: -6.875rem auto 0;
+    max-width: 26.5rem;
+    min-height: 25.5625rem;
+    padding: 2rem 4rem;
+    /*Las 2 medidas "0 0.1rem 0.6rem" modifica el margen de la sombra de la caja(agrandan o achican la sombra) + el color*/
+    box-shadow: 0 0.1rem 0.6rem 0 #007bff;
+          /*hasta aqui.*/
+        
   }
+
+  
 
 #botonEnvio{
     /*Espacio entre el elemento y su propio borde*/
@@ -62,6 +75,7 @@ input {
 }
   /*La imagen queda en un tamaño adecuado para la presentación del logo con este tamaño*/
 img{
-width: 72px;
-height: 72px;
+  
+width: 144px;
+height: 126px;
 }

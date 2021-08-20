@@ -3,13 +3,13 @@
 function mostrarProductosLista(array){
 //
 //creo una variable que contendra en un string el contenido a agregar al html
-    let htmlContentToAppend = "";
+    let agregarHtml= "";
     //el for recorre el array cada atributo antes de pasar al proximo indice del array obteniendo los datos necesarios
     //para rellenar los datos que nos interesan.-
     for(let i = 0; i < array.length; i++){
         let productos = array[i];
 
-        htmlContentToAppend += `
+        agregarHtml += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -27,7 +27,7 @@ function mostrarProductosLista(array){
         </div>
         `
 
-        document.getElementById("lista-container").innerHTML = htmlContentToAppend;
+        document.getElementById("lista-container").innerHTML = agregarHtml;
     }
 }
 
@@ -39,11 +39,11 @@ document.addEventListener("DOMContentLoaded",function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            productosArray= resultObj.data;
+            objProductos= resultObj.data;
             hideSpinner();
             //Muestro las categorías ordenadas
             //console.log(mostrarProductosLista(productosArray));
-            mostrarProductosLista(productosArray)
+            mostrarProductosLista(objProductos)
         }
     });
 
