@@ -15,6 +15,17 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
+//facebook api:
+
+
+
+
+
+FB.getLoginStatus(function(response) {
+  statusChangeCallback(response);
+});
+
+
 var getJSONData = function(url){
     var result = {};
     showSpinner();
