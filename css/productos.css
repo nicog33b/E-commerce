@@ -1,0 +1,27 @@
+.imagenProducto{
+padding: .25rem;
+background-color:azure;
+border: 1px solid #dee2e6;
+border-radius: .36rem;
+max-width: 100%;
+height: auto;
+
+}
+
+.descripcionProducto{
+font-family:Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+color:steelblue
+}
+
+.nombreProducto{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#productosTitle{
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+/*Ayuda a visualizar al usuario de una forma visual en que sección de la web se encuentra.*/
+a#destacada{
+  color:greenyellow;
+  }
