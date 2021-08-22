@@ -24,8 +24,9 @@
 
 
 
-       <div id="fb-root"></div>
-       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1" nonce="1uSwCVW4"></script>
+    <body class="text-center">
+      <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1" nonce="nCJ1Buga"></script>
  
  
 
@@ -42,10 +43,16 @@
  
  <!-- Boton que envía el formulario.--->
  <input type="submit" id="botonEnvio"value="Login">
-
- 
-    
-   <script src="js/facebookSDK.js"></script>
+ <br>
+ <br>
+ <fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+   </form>
+  
+   
+   <script src="js/facebook.js"></script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
