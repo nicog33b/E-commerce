@@ -1,4 +1,7 @@
-
+let redirigir = () =>{
+if(statusChangeCallback()==='connected'){
+    document.location.href='main.html'
+}
 
 
 
@@ -7,5 +10,6 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    console.log(FB.getLoginStatus()) 
-});
+redirigir()
+
+});}
