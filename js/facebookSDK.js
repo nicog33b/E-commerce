@@ -12,7 +12,7 @@
 //		Variables Globales
 // *******************************************************
 //	Facebook App ID
-var facebookAppID	= document.getElementById('facebook-login-button').getAttribute("appId");
+var facebookAppID	= document.getElementById('facebook-login-button').getAttribute("534968161160578");
 // -------------------------------------------------------
 //	Facebook User Data
 var facebookUser = {};
