@@ -1,4 +1,12 @@
-
+function onLogin(){
+  FB.login((Response) =>{
+if(Response.authResponse){
+  FB.api('/me',(Response)=>{
+console.log(Response);
+  })
+}
+  })
+}
 
   window.fbAsyncInit = function() {
     FB.init({
@@ -20,13 +28,4 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-
-   function onLogin(){
-    FB.login((response)=>{
-if(response.authResponse){
-FB.appId('/me',(response)=>{
-  console.log(response)
-})
-}
-
-    })};
+  
