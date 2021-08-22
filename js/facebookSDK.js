@@ -83,27 +83,27 @@ var statusChangeCallback	= function (response) {
 // *******************************************************
 //		Iniciar la SDK de Facebook de forma asíncrona
 // *******************************************************
-window.fbAsyncInit	= function() {
-	//	Ajuste de opciones
-	FB.init({
+
+window.fbAsyncInit = function() {
+    FB.init({
 		appId      :  '{534968161160578}',
 		cookie     : true,
 		xfbml      : true,
 		version    : 'v11.0'
-	});
-	//	Llamar statusChangeCallback() al iniciar sesión
-	FB.getLoginStatus(function(response) {
-		statusChangeCallback(response);
-	})
-};
-// *******************************************************
-//		Cargar la SDK de Facebook de foma asíncrona
-// *******************************************************
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs)
-}(document, 'script', 'facebook-jssdk'))
-// *******************************************************
+    });
+      
+    FB.AppEvents.logPageView();   
+		//	Llamar statusChangeCallback() al iniciar sesión
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		})
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
