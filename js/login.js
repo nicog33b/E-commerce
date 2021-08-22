@@ -1,6 +1,6 @@
 let redirigir = () =>{
-if(statusChangeCallback()==='connected'){
-    document.location.href='main.html'
+if(FB.getLoginStatus()==="connected"){
+    window.location = "main.html";
 }
 
 
