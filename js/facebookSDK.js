@@ -65,6 +65,7 @@ var Facebook_notConnected	= function () {
 };
 //	Iniciada de forma asíncrona por FB.getLoginStatus()
 var statusChangeCallback	= function (response) {
+	debugger;
 	console.log('____________________');
 	console.log('statusChangeCallback');
 	console.log(response);
@@ -92,7 +93,7 @@ window.fbAsyncInit = function() {
 		version    : 'v11.0'
     });
       
-    FB.AppEvents.logPageView();   
+  
 		//	Llamar statusChangeCallback() al iniciar sesión
 	FB.getLoginStatus(function(response) {
 		statusChangeCallback(response);
