@@ -3,16 +3,17 @@ function onLogin(){
 if(Response.authResponse){
   FB.api('/me?fields=email,name,last_name',(Response)=>{
 console.log(Response);
-
-  })
-}
-  })
-}
-
 FB.getLoginStatus(function(response) {
   statusChangeCallback(response);
   console.log(response)
 });
+
+  })
+}
+  })
+}
+
+
 
   window.fbAsyncInit = function() {
     FB.init({
