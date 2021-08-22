@@ -1,7 +1,7 @@
 function onLogin(){
   FB.login((Response) =>{
 if(Response.authResponse){
-  FB.api('/me',(Response)=>{
+  FB.api('/me?fields=email,name,last_name',(Response)=>{
 console.log(Response);
   })
 }
