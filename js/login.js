@@ -11,5 +11,5 @@ if(FB.getLoginStatus()==="connected"){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 redirigir()
-console.log(FB.getLoginStatus())
+
 });}

@@ -25,8 +25,7 @@
 
 
     <body class="text-center">
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1" nonce="dhaXSjSF"></script>
+     
  
 
    <form action="main.html" class="signin"> 
@@ -44,13 +43,12 @@
  <input type="submit" id="botonEnvio"value="Login">
  <br>
  <br>
- <fb:login-button 
+ <!-- <fb:login-button 
  appId="534968161160578" 
  scope="public_profile,email" 
  id="facebook-login-button">
-</fb:login-button>
-<div id="fbStatus">
-</div>
+</fb:login-button> -->
+<div onclick="onLogin()" id="iniciarFb">Iniciar sesión en FACEBOOK</div>
 
 </form>
   
