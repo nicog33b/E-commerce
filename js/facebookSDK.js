@@ -1,41 +1,48 @@
-function onLogin(){
-  FB.login((Response) =>{
-if(Response.authResponse){
-  FB.api('/me?fields=email,name,last_name',(Response)=>{
-console.log(Response);
-if(Response.authResponse.status==='connected'){
-windows.location.href="main.html"
+function statusChangeCallback(response) {  
+  console.log('statusChangeCallback');
+  console.log(response);                   
+  if (response.status === 'connected') {  
+    testAPI();  
+  } else {                                 
+    document.getElementById('status').innerHTML = 'Porfavor logeate ' +
+      'en la pagina.';
+  }
 }
-  })
-}
-  })
-}
+
+
 function checkLoginState() {               
-  FB.getLoginStatus(function(response) {   // See the onlogin handler
+  FB.getLoginStatus(function(response) {   
     statusChangeCallback(response);
+    console.log(response)
   });
 }
 
 
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '{534968161160578}',
+    cookie     : true,                     
+    xfbml      : true,                   
+    version    : '{v11.0}'          
+  });
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '534968161160578',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v11.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+  FB.getLoginStatus(function(response) {    
+    statusChangeCallback(response);
+    console.log(response)       
+  });
+};
+
+function testAPI() {                     
+  console.log('Bienvenido.');
+  FB.api('/me', function(response) {
+    console.log('Acceso correcto: ' + response.name);
+    document.getElementById('status').innerHTML =
+      'Gracias por logearte ' + response.name + '!';
+  });
+}
+
+
+ 
 
   
