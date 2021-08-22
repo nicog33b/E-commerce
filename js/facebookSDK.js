@@ -10,7 +10,11 @@ windows.location.href="main.html"
 }
   })
 }
-
+function checkLoginState() {               
+  FB.getLoginStatus(function(response) {   // See the onlogin handler
+    statusChangeCallback(response);
+  });
+}
 
 
 
