@@ -94,9 +94,9 @@ window.fbAsyncInit = function() {
       
     FB.AppEvents.logPageView();   
 		//	Llamar statusChangeCallback() al iniciar sesión
-		FB.getLoginStatus(function(response) {
-			statusChangeCallback(response);
-		})
+	FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	})
       
   };
 

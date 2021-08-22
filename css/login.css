@@ -75,7 +75,7 @@ input {
 }
   /*La imagen queda en un tamaño adecuado para la presentación del logo con este tamaño*/
 img{
-  
+  align-content:center;
 width: 144px;
 height: 126px;
 }
