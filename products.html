@@ -24,9 +24,54 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       </div>
     </nav>
+    <div class="container">
+         
+            <div class="row justify-content-end">
+              <div class="col-md-6">
+                
+                <!-- <br>buscador</div> -->
+
+                
+
+
+                <div class="col-md-6 col-sm-12 mb-1 container">
+                  <div class="row">
+                    <div class="col text-right">
+                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                            <label class="btn btn-light active" id="sortAsc" >
+                                <input type="radio" name="options" autocomplete="off" checked>A-Z
+                            </label>
+                            <label class="btn btn-light" id="sortDesc" >
+                                <input type="radio" name="options" autocomplete="off">Z-A
+                            </label>
+                            <label class="btn btn-light" id="sortByCount" >
+                                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                  <div class="row container p-0 m-0">
+                    <div class="col">
+                      <p class="font-weight-normal text-right my-2">Cant.</p>
+                    </div>
+                    <div class="col">
+                      <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                    </div>
+                    <div class="col">
+                      <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                    </div>
+                    <div class="col-3 p-0">
+                      <div class="btn-group" role="group">
+                        <button class="btn btn-light active" id="rangeFilterCount">Filtrar</button>
+                        <button class="btn btn-light active" id="clearRangeFilter">Limpiar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
     <main role="main" class="pb-5">
    
-      <div class="container">
+      <div class="container"></div>
           <div class="row">
               <div id="lista-container">
               </div>

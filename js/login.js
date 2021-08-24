@@ -1,9 +1,3 @@
-let redirigir = () =>{
-if(FB.getLoginStatus()==="connected"){
-    window.location = "main.html";
-}
-
-
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -12,4 +6,4 @@ if(FB.getLoginStatus()==="connected"){
 document.addEventListener("DOMContentLoaded", function(e){
 redirigir()
 
-});}
+});
