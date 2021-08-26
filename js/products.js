@@ -49,17 +49,12 @@ document.addEventListener("DOMContentLoaded",function(e){
         }
     });
 
-    document.getElementById("btnFiltrar").addEventListener("click", function(){
-
-    });
     document.getElementById("btnLimpiar").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
-
         minCount = undefined;
         maxCount = undefined;
-
-        mostrarProductosLista(arrProducto);
+        mostrarProductosLista(arrProducto)
             
     });
 
