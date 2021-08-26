@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         }
     });
 
-    document.getElementById("btnLimpiar").addEventListener("click", function(){
+    document.getElementById("btnFiltrar").addEventListener("click", function(){
 
     });
     document.getElementById("btnLimpiar").addEventListener("click", function(){
