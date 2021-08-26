@@ -1,5 +1,5 @@
 //Analizando veo que puedo reutilizar el codigo usado en clase.
-let arrProductosActual = [];
+let arrProducto = [];
 
 function mostrarProductosLista(array){
 //
@@ -40,19 +40,18 @@ function mostrarProductosLista(array){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded",function(e){
-
     getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            objProductos= resultObj.data;
+        if (resultObj.status === "ok"){
             hideSpinner();
-            //Muestro las categorías ordenadas
-            //console.log(mostrarProductosLista(productosArray));
-            mostrarProductosLista(objProductos)
-         console.log(objProductos[0].cost);
+            arrProducto= resultObj.data;
+            mostrarProductosLista(arrProducto)
+            console.log(arrProducto[0].cost);
         }
     });
-    
+
+    document.getElementById("btnLimpiar").addEventListener("click", function(){
+
+    });
     document.getElementById("btnLimpiar").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -60,7 +59,8 @@ document.addEventListener("DOMContentLoaded",function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showProductsList();
+        mostrarProductosLista(arrProducto);
+            
     });
 
 });
