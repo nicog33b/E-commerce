@@ -1,5 +1,48 @@
-//Analizando veo que puedo reutilizar el codigo usado en clase.
+//Utilizo un array global para que al ser cargado en la pagina pueda ser utilizado por otras funciones sin tener
+//que llamar al getJson repetidamente.
 let arrProducto = [];
+//utilizado para poder limpiar(restablecer) la ventana a como por defecto.
+let arrProductoLimpio = [];
+
+/*Esta función sirvio de prueba para testear el funcionamiento del sort.*/
+function analizador(array){
+    for(let i = 0; i < array.length; i++){
+ let precios=array[i]
+console.log(precios.cost);
+        }
+}
+function filtroRelevancia(){
+    /*Con esta función  ayudamos al sort a comparar un numero a con el b y según cual es 
+    negativo o positivo lo va ordenar antes o después
+    
+Si el resultado es negativo, a se ordena antes que b.
+Si el resultado es positivo, b se ordena antes de a.
+Si el resultado es 0, nada cambia.*/
+
+arrProducto.sort(function(a, b){return b.soldCount - a.soldCount
+})};
+function filtroAscendentePrecio(){
+    /*Con esta función  ayudamos al sort a comparar un numero a con el b y según cual es 
+    negativo o positivo lo va ordenar antes o después
+    
+Si el resultado es negativo, a se ordena antes que b.
+Si el resultado es positivo, b se ordena antes de a.
+Si el resultado es 0, nada cambia.*/
+
+arrProducto.sort(function(a, b){return a.cost - b.cost
+})};
+
+function filtroDescendentePrecio(){
+    /*Con esta función  ayudamos al sort a comparar un numero a con el b y según cual es 
+    negativo o positivo lo va ordenar antes o después
+    
+Si el resultado es negativo, b se ordena antes que a.
+Si el resultado es positivo, a se ordena antes de b.
+Si el resultado es 0, nada cambia.*/
+
+arrProducto.sort(function(a, b){return b.cost - a.cost
+})};
+
 
 function mostrarProductosLista(array){
 //
@@ -44,18 +87,39 @@ document.addEventListener("DOMContentLoaded",function(e){
         if (resultObj.status === "ok"){
             hideSpinner();
             arrProducto= resultObj.data;
-            mostrarProductosLista(arrProducto)
-            console.log(arrProducto[0].cost);
+            arrProductoLimpio=resultObj.data;
+            mostrarProductosLista(arrProductoLimpio);
+        
+           
         }
     });
 
+    document.getElementById("sortRel").addEventListener("click",function(){
+    filtroRelevancia()
+    mostrarProductosLista(arrProducto);
+});
+    document.getElementById("sortDesc").addEventListener("click",function(){
+
+    filtroDescendentePrecio()
+        mostrarProductosLista(arrProducto);
+
+    });
+document.getElementById("sortAsc").addEventListener("click",function(){
+
+    filtroAscendentePrecio();
+    mostrarProductosLista(arrProducto);
+    
+});
+
     document.getElementById("btnLimpiar").addEventListener("click", function(){
+        /*El valor ingresado en los textboxs(min,max) son vaciados.*/ 
         document.getElementById("filtrarMinimo").value = "";
         document.getElementById("filtrarMaximo").value = "";
-        minCount = undefined;
-        maxCount = undefined;
-        mostrarProductosLista(arrProducto)
-            
+                 
+        
+        mostrarProductosLista(arrProductoLimpio);
+
+     
     });
 
 });

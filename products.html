@@ -32,26 +32,27 @@
                 <!-- <br>buscador</div> -->
 
                 
-
-
-                <div class="col-md-6 col-sm-12 mb-1 container">
-                  
+                <div class="container">
                   <div class="row">
                     <div class="col text-right">
-                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                            <label onclick=""class="btn btn-light active" id="sortAsc" >
-                                <input type="radio" name="options" autocomplete="off" checked>A-Z
-                            </label>
-                            <label class="btn btn-light" id="sortDesc" >
-                                <input type="radio" name="options" autocomplete="off">Z-A
-                            </label>
-                            <label class="btn btn-light" id="sortByCount" >
-                                <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
-                            </label>
-                        </div>
+                      <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                        <label class="btn btn-light" id="sortRel" >
+                          <input type="radio" name="options" autocomplete="off">Relevancia ↑
+                        </label>
+                      </label>
+                          <label class="btn btn-light active" id="sortAsc" >
+                              <input type="radio" name="options" autocomplete="off" checked>Precio ↓
+                          </label>
+                          <label class="btn btn-light" id="sortDesc" >
+                              <input type="radio" name="options" autocomplete="off">Precio ↑
+                          </label>
+                          <button class="btn btn-light active" id="btnFiltrar">Filtrar</button>
+
+                          <button class="btn btn-light active" id="btnLimpiar">Limpiar</button>
+                      </div>
                     </div>
-                </div>
-                </div>
+                  </div>
+                  </div>
                   <div class="row container p-0 m-0">
                     <div class="col">
                       <p class="font-weight-normal text-right my-2">Cant.</p>
@@ -63,8 +64,7 @@
                       <input class="form-control" type="number" placeholder="máx." id="filtrarMaximo">
                                <div class="col-3 p-0">
                       <div class="btn-group" role="group">
-                        <button class="btn btn-light active" id="btnFiltrar">Filtrar</button>
-                        <button class="btn btn-light active" id="btnLimpiar">Limpiar</button>
+                 
                       </div>
                     </div>
                   </div>
