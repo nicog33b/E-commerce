@@ -1,9 +1,26 @@
+//Constantes.
+const formularioUsuario= document.getElementById("formLogin");
+const username= document.getElementById("correo");
+const contraseña=document.getElementById("contraseña");
+
+formularioUsuario.addEventListener("submit",function(evento){
+/*Evita que la pagina se recargue automaticamente.*/
+    evento.preventDefault();
+
+ //El array users va contener los datos ingresados del usuario.   
+    let users= [{
+usuario:username.value,
+pass:contraseña.value
+    }];
+
+ //Visualizar los datos del usuario ingresado.   
+  console.log(users);
+localStorage.setItem('usuario',JSON.stringify(users))
+location.href="main.html";
 
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
+});
 document.addEventListener("DOMContentLoaded", function(e){
-redirigir()
-
+  
 });
