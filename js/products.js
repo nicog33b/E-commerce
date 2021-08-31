@@ -3,6 +3,8 @@
 let arrProducto = [];
 let tipoFiltro=0;
 
+
+
 function filtroAscDescRel(){
     if (tipoFiltro===1) {
         arrProducto.sort(function(a, b){return b.soldCount - a.soldCount});
