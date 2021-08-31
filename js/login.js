@@ -8,14 +8,14 @@ formularioUsuario.addEventListener("submit",function(evento){
     evento.preventDefault();
 
  //El array users va contener los datos ingresados del usuario.   
-    let users= [{
+    let users= Array({
 usuario:username.value,
 pass:contraseña.value
-    }];
+});
 
  //Visualizar los datos del usuario ingresado.   
   console.log(users);
-localStorage.setItem('usuario',JSON.stringify(users))
+localStorage.setItem('userConectado',JSON.stringify(users));
 location.href="main.html";
 
 

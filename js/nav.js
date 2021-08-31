@@ -1,0 +1,1 @@
+const userOn = document.getElementById("navegadorPrincipal");
