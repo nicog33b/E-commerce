@@ -3,6 +3,10 @@ const formularioUsuario= document.getElementById("formLogin");
 const username= document.getElementById("correo");
 const contraseña=document.getElementById("contraseña");
 
+
+
+
+
 formularioUsuario.addEventListener("submit",function(evento){
 /*Evita que la pagina se recargue automaticamente.*/
     evento.preventDefault();
@@ -17,6 +21,8 @@ pass:contraseña.value
   console.log(users);
 localStorage.setItem('userConectado',JSON.stringify(users));
 location.href="main.html";
+
+
 
 
 
