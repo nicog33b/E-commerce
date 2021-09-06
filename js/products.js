@@ -1,7 +1,16 @@
-//Utilizo un array global para que al ser cargado en la pagina pueda ser utilizado por otras funciones sin tener
-//que llamar al getJson repetidamente.
+//contiene el array de los productos durante la ejecución.
 let arrProducto = [];
+//según el valor, selecciona un tipo de filtrado.
 let tipoFiltro=0;
+/*se inicializan las variables que contienen 
+el minimo y maximo rango de precios buscado 
+por el usuario.
+*/
+let minimoP=undefined;
+let maximoP=undefined;
+
+
+
 
 
 
@@ -25,15 +34,17 @@ console.log(precios.cost);
 }
 
 
-function mostrarProductosLista(array){
+function mostrarProductosLista(){
 //
 //creo una variable que contendra en un string el contenido a agregar al html
     let agregarHtml= "";
     //el for recorre el array cada atributo antes de pasar al proximo indice del array obteniendo los datos necesarios
     //para rellenar los datos que nos interesan.-
-    for(let i = 0; i < array.length; i++){
-        let product = array[i];
+    for(let i = 0; i < arrProducto.length; i++){
+        let product = arrProducto[i];
 
+        if (((minimoP== undefined) || (minimoP != undefined && parseInt(product.cost) >= minimoP)) &&
+            ((maximoP == undefined) || (maximoP  != undefined && parseInt(product.cost) <= maximoP))){
         agregarHtml += `
         <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="row">
@@ -54,8 +65,9 @@ function mostrarProductosLista(array){
         </div>
     </a>
     `
-
+            }
         document.getElementById("lista-container").innerHTML = agregarHtml;
+    
     }
 }
 
@@ -75,21 +87,24 @@ document.addEventListener("DOMContentLoaded",function(e){
         }
     });
 
+
+
+
     document.getElementById("sortRel").addEventListener("click",function(){
         tipoFiltro=1;
         filtroAscDescRel();
-    mostrarProductosLista(arrProducto);
+        mostrarProductosLista()
 });
     document.getElementById("sortDesc").addEventListener("click",function(){
 tipoFiltro=2;
 filtroAscDescRel();
-        mostrarProductosLista(arrProducto);
+mostrarProductosLista()
 
     });
 document.getElementById("sortAsc").addEventListener("click",function(){
 tipoFiltro=3;
 filtroAscDescRel();
-    mostrarProductosLista(arrProducto);
+mostrarProductosLista()
     
 });
 
@@ -99,6 +114,28 @@ filtroAscDescRel();
     
     });
 
+    document.getElementById("btnFiltrar").addEventListener("click",function(){
+        minimoP= document.getElementById("filtrarMinimo").value;
+        maximoP= document.getElementById("filtrarMaximo").value;
+        if ((minimoP != undefined) && (minimoP != "") && (parseInt(minimoP)) >= 0){
+            minimoP = parseInt(minimoP);
+        }
+        else{
+            minimoP = undefined;
+        }
+
+        if ((maximoP != undefined) && (maximoP != "") && (parseInt(maximoP)) >= 0){
+            maximoP = parseInt(maximoP);
+        }
+        else{
+            maximoP = undefined;
+        }
+      
+            mostrarProductosLista()
+          
+        
+    });
+    
 
   
 });
