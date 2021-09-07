@@ -1,0 +1,13 @@
+#textComentario{
+   
+    display:flex;
+    border-radius:16px;
+    margin-right: 200px;
+    resize: none;
+}
+
+#botonComentario{
+
+margin-top:20px;
+border:palegreen;
+}
