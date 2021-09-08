@@ -2,7 +2,7 @@
    
     display:flex;
     border-radius:16px;
-    margin-right: 200px;
+    height: 250px;
     resize: none;
 }
 
@@ -10,4 +10,9 @@
 
 margin-top:20px;
 border:palegreen;
+}
+
+#btnSubmit{
+    width: 350px;
+    height:100;
 }
