@@ -1,9 +1,11 @@
+#carouselExampleIndicators{
+    
+}
+
 #textComentario{
    
     display:flex;
-    border-radius:16px;
-    height: 250px;
-    resize: none;
+      resize: none;
 }
 
 #botonComentario{
