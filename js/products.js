@@ -25,13 +25,6 @@ function filtroAscDescRel(){
       }
 };
 
-/*Esta función sirvio de prueba para apreciar los precios .*/
-function analizador(array){
-    for(let i = 0; i < array.length; i++){
- let precios=array[i]
-console.log(precios.cost);
-        }
-}
 
 
 function mostrarProductosLista(){
