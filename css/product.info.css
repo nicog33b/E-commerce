@@ -1,4 +1,7 @@
-
+#cajaComentarios{
+  margin-top:18em;
+  margin-bottom:2em;
+}
 #infoProducto{
   /*la propiedad grid de display permite que el contenido se estire en todo el div, permitiendo que el contenido sea
   responsive y claramente agradable visualmente.*/
