@@ -23,49 +23,7 @@ llenarTablaDatosProducto=()=>{
     document.getElementById("categoriaProducto").innerHTML=productoInfo.category;
 
 }
-let starTipo=0;
-star1=()=>{
-    document.getElementById("star1").className="fa fa-star checked"
-    document.getElementById("star2").className="fa fa-star"
-    document.getElementById("star3").className="fa fa-star"
-    document.getElementById("star4").className="fa fa-star"
-    document.getElementById("star5").className="fa fa-star"
-}
 
-star2=()=>{
-    document.getElementById("star1").className="fa fa-star checked"
-    document.getElementById("star2").className="fa fa-star checked" 
-    document.getElementById("star3").className="fa fa-star"
-    document.getElementById("star4").className="fa fa-star"
-    document.getElementById("star5").className="fa fa-star"
-}
-
-
-star3=()=>{
-    document.getElementById("star1").className="fa fa-star checked"
-    document.getElementById("star2").className="fa fa-star checked"
-    document.getElementById("star3").className="fa fa-star checked"
-    document.getElementById("star4").className="fa fa-star"
-    document.getElementById("star5").className="fa fa-star"
-}
-
-
-star4=()=>{
-    document.getElementById("star1").className="fa fa-star checked"
-    document.getElementById("star2").className="fa fa-star checked"
-    document.getElementById("star3").className="fa fa-star checked"
-    document.getElementById("star4").className="fa fa-star checked"
-    document.getElementById("star5").className="fa fa-star"
-}
-
-
-star5=()=>{
-    document.getElementById("star1").className="fa fa-star checked"
-    document.getElementById("star2").className="fa fa-star checked"
-    document.getElementById("star3").className="fa fa-star checked"
-    document.getElementById("star4").className="fa fa-star checked"
-    document.getElementById("star5").className="fa fa-star checked"
-}
 
 function mostrarListaComentarios(comment){
     //
@@ -75,16 +33,18 @@ function mostrarListaComentarios(comment){
         //para rellenar los datos que nos interesan.-
         for(let i = 0; i < comment.length; i++){
             let comentario= comment[i];
+            
+
             agregarComentario += `
-           
+        
               <div class="container">
                 <div class="row align-items-center justify-content-center">
                       <div class="col-12 col-md-7">
                         <p class="text-h3 mt-2"><strong> `+ comentario.user +`</strong>   
                           &nbsp;
-                          <span  class="fa fa-star checked"></span>
-                          <span  class="fa fa-star checked"></span>
-                          <span  class="fa fa-star checked"></span>
+                          <span  class="fa fa-star"></span>
+                          <span  class="fa fa-star"></span>
+                          <span  class="fa fa-star"></span>
                           <span  class="fa fa-star"></span>
                           <span  class="fa fa-star"></span></p>
                     <p class="comentarioUsuario" >
