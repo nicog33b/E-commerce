@@ -1,4 +1,33 @@
 let puntaje=0;
+
+let nroEstrellas = [`<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span></p>`,
+`<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span></p>`
+,`<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star"></span>
+<span  class="fa fa-star"></span></p>` 
+,`<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star"></span></p>` 
+,`<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span>
+<span  class="fa fa-star checked"></span></p>` 
+];
+
+
 star1=()=>{
     puntaje=1;
     document.getElementById("star1").className="fa fa-star checked"

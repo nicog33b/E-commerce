@@ -24,7 +24,6 @@ llenarTablaDatosProducto=()=>{
 
 }
 
-
 function mostrarListaComentarios(comment){
     //
     //creo una variable que contendra en un string el contenido a agregar al html
@@ -33,20 +32,14 @@ function mostrarListaComentarios(comment){
         //para rellenar los datos que nos interesan.-
         for(let i = 0; i < comment.length; i++){
             let comentario= comment[i];
-            
-
             agregarComentario += `
-        
+           
               <div class="container">
                 <div class="row align-items-center justify-content-center">
                       <div class="col-12 col-md-7">
-                        <p class="text-h3 mt-2"><strong> `+ comentario.user +`</strong>   
+                        <p class="text-h3 mt-2"><strong> `+ comentario.user +`</strong> &nbsp;&nbsp; 
                           &nbsp;
-                          <span  class="fa fa-star"></span>
-                          <span  class="fa fa-star"></span>
-                          <span  class="fa fa-star"></span>
-                          <span  class="fa fa-star"></span>
-                          <span  class="fa fa-star"></span></p>
+                          `+ nroEstrellas[comentario.score-1] +`
                     <p class="comentarioUsuario" >
                     `+ comentario.description +`
                     </p>
