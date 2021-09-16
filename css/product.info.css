@@ -1,8 +1,14 @@
 
-
+.userRel{
+  border-color:black;
+  border-radius:1em;
+}
 /* color de las estrellas de puntuación*/
 .comentarioUsuario{
- 
+ display:grid;
+ font-family:Georgia, 'Times New Roman', Times, serif;
+ font-size:24px;
+ border-radius: '\f086';
 }
 
 .checked {

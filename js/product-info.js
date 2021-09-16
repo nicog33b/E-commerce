@@ -36,9 +36,8 @@ function mostrarListaComentarios(comment){
            
               <div class="container">
                 <div class="row align-items-center justify-content-center">
-                      <div class="col-12 col-md-7">
-                        <p class="text-h3 mt-2"><strong> `+ comentario.user +`</strong> &nbsp;&nbsp; 
-                          &nbsp;
+                      <div class="col-26 col-md-8"> 
+                        <p class="text-h1 mt-5 userRel"><strong> `+ comentario.user +`</strong>
                           `+ nroEstrellas[comentario.score-1] +`
                     <p class="comentarioUsuario" >
                     `+ comentario.description +`

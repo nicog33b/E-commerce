@@ -1,6 +1,6 @@
 let puntaje=0;
 
-let nroEstrellas = [`<span  class="fa fa-star checked"></span>
+let nroEstrellas= [`<span  class="fa fa-star checked"></span>
 <span  class="fa fa-star"></span>
 <span  class="fa fa-star"></span>
 <span  class="fa fa-star"></span>
