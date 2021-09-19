@@ -1,108 +1,158 @@
-llenarTitulo=() => {
-document.getElementById("nombreProducto").innerText=productoInfo.name;
+llenarTitulo = () => { //rellena el titulo con el nombre del producto
+    document.getElementById("nombreProducto").innerText = productoInfo.name;
 }
 
-llenarImagenes=() => {
-
-  document.getElementById("imgProd1").src=productoInfo.images[0]
-  document.getElementById("imgProd2").src=productoInfo.images[1]
-  document.getElementById("imgProd3").src=productoInfo.images[2]
-  document.getElementById("imgProd4").src=productoInfo.images[3]
-  document.getElementById("imgProd5").src=productoInfo.images[4]
+llenarImagenes = () => {
+    //llena con una imagen cada espacio disponible en el carrousel(visor de imagenes.) del producto.
+    document.getElementById("imgProd1").src = productoInfo.images[0]
+    document.getElementById("imgProd2").src = productoInfo.images[1]
+    document.getElementById("imgProd3").src = productoInfo.images[2]
+    document.getElementById("imgProd4").src = productoInfo.images[3]
+    document.getElementById("imgProd5").src = productoInfo.images[4]
 }
 
-llenarDescripcion=()=>{
-  
-    document.getElementById("descripcion_producto").innerHTML=productoInfo.description; 
+llenarDescripcion = () => {
+    //Obtiene la descripcion del producto y rellena el campo destinado.
+    document.getElementById("descripcion_producto").innerHTML = productoInfo.description;
+}
+//Se rellena cada uno de los espacios de la tabla con los datos que pertenecen a cada celda.
+llenarTablaDatosProducto = () => {
+    document.getElementById("precioProducto").innerHTML = productoInfo.cost;
+    document.getElementById("monedaProducto").innerHTML = productoInfo.currency;
+    document.getElementById("disponibleProducto").innerHTML = productoInfo.soldCount;
+    document.getElementById("categoriaProducto").innerHTML = productoInfo.category;
+
 }
 
-llenarTablaDatosProducto=()=>{
-    document.getElementById("precioProducto").innerHTML=productoInfo.cost;
-    document.getElementById("monedaProducto").innerHTML=productoInfo.currency;
-    document.getElementById("disponibleProducto").innerHTML=productoInfo.soldCount;
-    document.getElementById("categoriaProducto").innerHTML=productoInfo.category;
-
-}
-
-function mostrarListaComentarios(comment){
+//Esta funcion recorre los comentarios sobre el producto y sus datos y invoca los comentarios 1x1 en su debido formato hmtl.
+function mostrarListaComentarios(comment) {
     //
     //creo una variable que contendra en un string el contenido a agregar al html
-        let agregarComentario= "";
-        //el for recorre el array cada atributo antes de pasar al proximo indice del array obteniendo los datos necesarios
-        //para rellenar los datos que nos interesan.-
-        for(let i = 0; i < comment.length; i++){
-            let comentario= comment[i];
-            agregarComentario += `
+    let agregarComentario = "";
+    //el for recorre el array cada atributo antes de pasar al proximo indice del array obteniendo los datos necesarios
+    //para rellenar los datos que nos interesan.-
+    for (let i = 0; i < comment.length; i++) {
+        let comentario = comment[i];
+        agregarComentario += `
            
               <div class="container">
                 <div class="row align-items-center justify-content-center">
                       <div class="col-26 col-md-8"> 
-                        <p class="text-h1 mt-5 userRel"><strong> `+ comentario.user +`</strong>
-                          `+ nroEstrellas[comentario.score-1] +`
+                        <p class="text-h1 mt-5 userRel"><strong> `+ comentario.user + `</strong>
+                          `+ nroEstrellas[comentario.score - 1] + `
                     <p class="comentarioUsuario" >
-                    `+ comentario.description +`
+                    `+ comentario.description + `
                     </p>
-                 
+                 <p>`+ comentario.dateTime + `
+                 </p>
                   </div>
                   `
-                
-            document.getElementById("cajaComentarios").innerHTML = agregarComentario;
-        
-        }
+
+        document.getElementById("cajaComentarios").innerHTML = agregarComentario;
+
     }
+}
 
 
-document.addEventListener("DOMContentLoaded", function(e){
-  
-    document.getElementById("star1").addEventListener("click", function(){
+
+document.addEventListener("DOMContentLoaded", function (e) {
+
+    let formularioComentario = document.getElementById("submitComentario")
+    formularioComentario.addEventListener("submit", function (evento) {
+        /*Evita que la pagina se recargue automaticamente.*/
+        evento.preventDefault();
+        //obtiene el valor que el usuario texteo en la caja de comentario.
+        var cajaDeComentarios = document.getElementById("textComentario").value;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; 
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        today = mm + '/' + dd + '/' + yyyy;
+        
+        //va contener el formato html de la caja de comentario con los datos del usuario + su comentario.
+        let newComentario = "";
+        newComentario += `
+           
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+                <div class="col-26 col-md-8"> 
+                  <p class="text-h1 mt-5 userRel"><strong> `+ username[0].usuario + `</strong>
+                    `+ nroEstrellas[puntaje - 1] + `
+              <p class="comentarioUsuario" >
+              `+ cajaDeComentarios + `
+              </p>
+              <p>
+              `+ today + `
+              </p>
+                 </div>
+
+            `
+        //se agrega toda la información recolectado a la caja donde estan todos los comentarios.(+=)
+        document.getElementById("cajaComentarios").innerHTML += newComentario;
+        //Vacia la caja de texto para el proximo comentario.
+        document.getElementById("textComentario").value = "";
         star1();
-});
-
-document.getElementById("star2").addEventListener("click", function(){
-    star2();
     });
 
-    document.getElementById("star3").addEventListener("click", function(){
+    document.getElementById("star1").addEventListener("click", function () {
+        //se invoca 
+        star1();
+    });
+
+    document.getElementById("star2").addEventListener("click", function () {
+        star2();
+    });
+
+    document.getElementById("star3").addEventListener("click", function () {
         star3();
-        });
-
-        document.getElementById("star4").addEventListener("click", function(){
-            star4();
-            });
-
-            document.getElementById("star5").addEventListener("click", function(){
-                star5();
-                });
-
-
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-           productoInfo = resultObj.data;
-          //rellenar el titulo del producto ref linea 1
-           llenarTitulo();
-           //rellenar las imagenes del producto ref linea 5
-           llenarImagenes();
-           //rellenar la descripción del producto ref linea 14
-           llenarDescripcion();
-           //mostrar aviso de stock y consultar al vendedor
-           document.getElementById("avisoStock").innerHTML="Hay "+productoInfo.soldCount+" Disponibles"; 
-           //llenar los datos de la tabla de información del producto ref linea 19
-          llenarTablaDatosProducto()
-          
-        }
-
-    
     });
 
-    
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-           productoComentario = resultObj.data;
-           mostrarListaComentarios(productoComentario);
+    document.getElementById("star4").addEventListener("click", function () {
+        star4();
+    });
+
+    document.getElementById("star5").addEventListener("click", function () {
+        star5();
+    });
+
+    //nos o41btiene los datos referidos al producto.
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productoInfo = resultObj.data;
+            //rellenar el titulo del producto ref linea 1
+            llenarTitulo();
+            //rellenar las imagenes del producto ref linea 5
+            llenarImagenes();
+            //rellenar la descripción del producto ref linea 14
+            llenarDescripcion();
+            //mostrar aviso de stock y consultar al vendedor
+            document.getElementById("avisoStock").innerHTML = "Hay " + productoInfo.soldCount + " Disponibles";
+            //llenar los datos de la tabla de información del producto ref linea 19
+            llenarTablaDatosProducto()
+
         }
 
-    
+
     });
-   
+
+    //nos obtiene los comentarios que han hecho los usuarios sobre el producto y sus datos.
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productoComentario = resultObj.data;
+            mostrarListaComentarios(productoComentario);
+        }
+
+
+    });
+
 
 });

@@ -1,32 +1,32 @@
 //Constantes.
-const formularioUsuario= document.getElementById("formLogin");
-const username= document.getElementById("correo");
-const contraseña=document.getElementById("contraseña");
+const formularioUsuario = document.getElementById("formLogin");
+const username = document.getElementById("correo");
+const contraseña = document.getElementById("contraseña");
 
 
 
 
 
-formularioUsuario.addEventListener("submit",function(evento){
-/*Evita que la pagina se recargue automaticamente.*/
-    evento.preventDefault();
+formularioUsuario.addEventListener("submit", function (evento) {
+  /*Evita que la pagina se recargue automaticamente.*/
+  evento.preventDefault();
 
- //El array users va contener los datos ingresados del usuario.   
-    let users= Array({
-usuario:username.value,
-pass:contraseña.value
-});
+  //El array users va contener los datos ingresados del usuario.   
+  let users = Array({
+    usuario: username.value,
+    pass: contraseña.value
+  });
 
- //Visualizar los datos del usuario ingresado.   
+  //Visualizar los datos del usuario ingresado.   
   console.log(users);
-localStorage.setItem('userConectado',JSON.stringify(users));
-location.href="main.html";
+  localStorage.setItem('userConectado', JSON.stringify(users));
+  location.href = "main.html";
 
 
 
 
 
 });
-document.addEventListener("DOMContentLoaded", function(e){
-  
+document.addEventListener("DOMContentLoaded", function (e) {
+
 });

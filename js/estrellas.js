@@ -28,6 +28,7 @@ let nroEstrellas= [`<span  class="fa fa-star checked"></span>
 ];
 
 
+
 star1=()=>{
     puntaje=1;
     document.getElementById("star1").className="fa fa-star checked"

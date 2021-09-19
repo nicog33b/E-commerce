@@ -24,46 +24,48 @@
 
 
 
-    <body class="text-center">
- 
-      
+<body class="text-center">
 
 
 
-   <form action="main.html" class="signin" id="formLogin"> 
+
+
+  <form action="main.html" class="signin" id="formLogin">
     <!-- Titulo -->
 
 
     <!-- Logo De Empresa -->
- <img src="img/LogoMercado.png"> <br><br>
-     <!-- Correo -->
- <input type="email" id="correo" class="loginEstilo" placeholder="Correo electrónico" required="" autofocus=""> </br></br>
- 
- <!-- Contraseña -->
- <input type="password" id="contraseña" class="loginEstilo" placeholder="Contraseña" required=""> </br></br>
- 
- <!-- Boton que envía el formulario.--->
- <input type="submit" id="botonEnvio"value="Login">
- <br>
- <br>
- <fb:login-button onclick="testAPI()" onclick="checkLoginState() "
- appId="534968161160578" 
- scope="public_profile,email" 
- id="facebook-login-button">
-</fb:login-button> 
+    <img src="img/LogoMercado.png"> <br><br>
+    <!-- Correo -->
+    <input type="email" id="correo" class="loginEstilo" placeholder="Correo electrónico" required="" autofocus="">
+    </br></br>
 
-<div id="status"></div>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1" nonce="G8WxhRuK"></script>
+    <!-- Contraseña -->
+    <input type="password" id="contraseña" class="loginEstilo" placeholder="Contraseña" required=""> </br></br>
 
-</form>
-  
-   
-   <script src="js/facebookSDK.js"></script>
+    <!-- Boton que envía el formulario.--->
+    <input type="submit" id="botonEnvio" value="Login">
+    <br>
+    <br>
+    <fb:login-button onclick="testAPI()" onclick="checkLoginState() " appId="534968161160578"
+      scope="public_profile,email" id="facebook-login-button">
+    </fb:login-button>
+
+    <div id="status"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=534968161160578&autoLogAppEvents=1"
+      nonce="G8WxhRuK"></script>
+
+  </form>
+
+
+  <script src="js/facebookSDK.js"></script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
   <script src="js/nav.js"></script>
 </body>
 
 <!--ASDDDDDDDDDDDDDD-->
+
 </html>
