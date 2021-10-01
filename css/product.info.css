@@ -1,4 +1,16 @@
 
+.imgRelacionado{
+height:180px;
+width: 250px;
+border-radius:3px;
+margin-right: 3px;
+margin-left:3px;
+border-color:black;
+}
+#productosRelacionados{
+  margin-top:9em;
+  margin-bottom: 12em;  
+}
 .userRel{
   border-color:black;
   border-radius:1em;

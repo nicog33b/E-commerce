@@ -53,9 +53,13 @@ function mostrarListaComentarios(comment) {
     }
 }
 
-
+obtenerProductoActual= () => {
+    var productoName= document.getElementById("nombreProducto").textContent;
+        console.log("producto actual: "+productoName)
+    }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    
 
     let formularioComentario = document.getElementById("submitComentario")
     formularioComentario.addEventListener("submit", function (evento) {
@@ -138,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById("avisoStock").innerHTML = "Hay " + productoInfo.soldCount + " Disponibles";
             //llenar los datos de la tabla de información del producto ref linea 19
             llenarTablaDatosProducto()
-
+            obtenerProductoActual()
         }
 
 
@@ -151,7 +155,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
             mostrarListaComentarios(productoComentario);
         }
 
+    });
 
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            hideSpinner();
+            arrProducto= resultObj.data;
+            
+        
+           
+        }
     });
 
 

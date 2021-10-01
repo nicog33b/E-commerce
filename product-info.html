@@ -67,8 +67,8 @@
 
 
         <div id="contenedor_principal" class="container-fluid">
-         
-         
+
+
           <div class="row">
             <div id="imagenesProducto" class="col-md-6">
               <div class="carousel slide" id="carousel-836841">
@@ -115,7 +115,7 @@
             </div>
             <div id="infoProducto" class="col-md-6">
               <h2 id="nombreProducto">
-                <!--nombre del producto.-->
+
               </h2>
               <p id="descripcion_producto">
 
@@ -157,72 +157,80 @@
 
 
             <div id="productosRelacionados" class="container-fluid">
+              <div class="text-center">
+                <h4 class="text-dark">Productos relacionados:</h4>
+              </div>
+              <div class="row">
+                <div id="" class="col-md-12">
+                  <hr id="imagenesProductosRelacionados" class="mt-3 mb-3" />
+                  <!-- <img class="imgRelacionado" src="img/cat1.jpg"> -->
 
 
+
+                  <hr id="hrFinal" class="mt-3 mb-3" />
+                </div>
+              </div>
+
+
+              <!--Aqui van a ser ingresados los comentarios pre-cargados y los insertados por el usuario.-->
+              <div id="cajaComentarios" class="container-fluid">
+
+              </div>
 
 
             </div>
+          </DIV>
 
 
-            <!--Aqui van a ser ingresados los comentarios pre-cargados y los insertados por el usuario.-->
-            <div id="cajaComentarios" class="container-fluid">
 
+
+
+
+
+
+          <!--Este formulario corresponde al comentario del usuario, las estrellas, el comentario.-->
+          <form id="submitComentario" class="text-center" type="submit">
+
+            <p class="clasificacion">
+              <span id="star1" class="fa fa-star"></span>
+              <span id="star2" class="fa fa-star"></span>
+              <span id="star3" class="fa fa-star"></span>
+              <span id="star4" class="fa fa-star"></span>
+              <span id="star5" class="fa fa-star"></span>
+            </p>
+
+            <div class="container">
+              <div class="text-center">
+                <textarea id="textComentario" class="form-control" name="comentarios" rows="10" cols="30"
+                  placeholder="Escribe aquí tus comentarios" required></textarea>
+              </div>
+              <div id="botonComentario" class="text-center">
+                <button id="btnSubmit" type="submit" class="btn btn-primary mb-3">Enviar</button>
+              </div>
             </div>
 
+          </form>
 
+
+
+
+
+
+
+          <div id="spinner-wrapper">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
-        </DIV>
-
-
-
-
-
-
-
-
-<!--Este formulario corresponde al comentario del usuario, las estrellas, el comentario.-->
-        <form id="submitComentario" class="text-center" type="submit">
-
-          <p class="clasificacion">
-            <span id="star1" class="fa fa-star"></span>
-            <span id="star2" class="fa fa-star"></span>
-            <span id="star3" class="fa fa-star"></span>
-            <span id="star4" class="fa fa-star"></span>
-            <span id="star5" class="fa fa-star"></span>
-          </p>
-
-          <div class="container">
-            <div class="text-center">
-              <textarea id="textComentario" class="form-control" name="comentarios" rows="10" cols="30"
-                placeholder="Escribe aquí tus comentarios" required></textarea>
-            </div>
-            <div id="botonComentario" class="text-center">
-              <button id="btnSubmit" type="submit" class="btn btn-primary mb-3">Enviar</button>
-            </div>
-          </div>
-
-        </form>
-
-
-
-
-
-
-
-        <div id="spinner-wrapper">
-          <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/product-info.js"></script>
-        <script src="js/estrellas.js"></script>
-        <script src="js/nav.js"></script>
+          <script src="js/jquery-3.4.1.min.js"></script>
+          <script src="js/bootstrap.bundle.min.js"></script>
+          <script src="js/init.js"></script>
+          <script src="js/product-info.js"></script>
+          <script src="js/estrellas.js"></script>
+          <script src="js/nav.js"></script>
 </body>
 
 </html>
