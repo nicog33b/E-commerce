@@ -1,3 +1,5 @@
+let arrayProducto=[]
+let arrayFiltro=[]
 llenarTitulo = () => { //rellena el titulo con el nombre del producto
     document.getElementById("nombreProducto").innerText = productoInfo.name;
 }
@@ -53,13 +55,42 @@ function mostrarListaComentarios(comment) {
     }
 }
 
+agregarProductosRelacionados=()=>{
+ 
+   let agregarImagen= "";
+ //Esto es lo que se llama bucles anidados.
+    for (let i = 0; i < arrayProducto.length;i++){
+        for (let x = 0; x< arrayFiltro.length;x++){
+        let imagen= arrayProducto[i];
+        let filtro=arrayFiltro[x]
+if(i===filtro){
+      agregarImagen +=  ` 
+      
+      <a href="product-info.html"><img class="imgRelacionado" src="`+imagen.imgSrc+`" alt="`+imagen.name+`">
+</a>
+
+      `
+   
+     //contenedor de imagenes de los productos relacionados.
+    document.getElementById("imagenesProductosRelacionados").innerHTML = agregarImagen;
+    }
+}
+
+}
+
+    }
+
+    
+
+
 obtenerProductoActual= () => {
     var productoName= document.getElementById("nombreProducto").textContent;
         console.log("producto actual: "+productoName)
     }
 
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    
+
 
     let formularioComentario = document.getElementById("submitComentario")
     formularioComentario.addEventListener("submit", function (evento) {
@@ -128,10 +159,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         star5();
     });
 
+    
     //nos o41btiene los datos referidos al producto.
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productoInfo = resultObj.data;
+  
             //rellenar el titulo del producto ref linea 1
             llenarTitulo();
             //rellenar las imagenes del producto ref linea 5
@@ -142,7 +175,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById("avisoStock").innerHTML = "Hay " + productoInfo.soldCount + " Disponibles";
             //llenar los datos de la tabla de información del producto ref linea 19
             llenarTablaDatosProducto()
-            obtenerProductoActual()
+            //Recibe el nombre del producto actual y lo muestra en consola.
+            obtenerProductoActual();
+          //Guarda los numeros referentes al producto relacionado en la variable arrayFiltro global.
+           arrayFiltro=productoInfo.relatedProducts        
         }
 
 
@@ -160,12 +196,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             hideSpinner();
-            arrProducto= resultObj.data;
-            
-        
+           arrayProducto=resultObj.data;
+           agregarProductosRelacionados()
+           
+          
            
         }
     });
+
 
 
 });
