@@ -26,7 +26,7 @@ body {
 }
 
 .table-shadow {
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 2, 3, 0.42);
     box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42)
 }
 
@@ -86,7 +86,7 @@ label.radio input:checked+span {
 }
 
 .line {
-    border-bottom: 1px solid rgb(102, 102, 221)
+    border-bottom: 1px solid rgb(120, 125, 221)
 }
 
 .information span {
