@@ -1,8 +1,28 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    https://japdevdep.github.io/ecommerce-api/cart/654.json
+let arrayCarrito=[];
+
+agregarProductosRelacionados=()=>{
+
+
 
     
+}
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+
+
+    getJSONData(CART_INFO2_URL).then(function (carrito) {
+        if (carrito.status === "ok") {
+            buyCarInfo= carrito.data;
+            arrayCarrito=carrito.data;    
+
+alert(arrayCarrito)
+
+
+
+
+        }
+
+
+    });
 });
