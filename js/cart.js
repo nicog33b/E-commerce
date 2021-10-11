@@ -5,27 +5,29 @@ agregarItemsAlCarrito = () => {
     let agregarAlCarrito = "";
     for (let i = 0; i < arrayCarrito.length; i++) {
         let carrito = arrayCarrito[i];
-        agregarAlCarrito += `
-       
-        
+        agregarAlCarrito += `      
+        <tr id="item">
         <td data-th="Product">
           <div class="row">
-            <h2 class="nomargin">&nbsp;&nbsp;&nbsp;Product 2</h4>
+            <h5 class="nomargin">&nbsp;&nbsp;&nbsp;`+carrito.name+`</h4>
         
             <div class="col-sm-10">
-              <div class="col-sm-2 hidden-xs"><img src="img/cat1.jpg" alt="..." class="img-responsive" width="200" ></div>
+              <div class="col-sm-2 hidden-xs"><img src="`+carrito.src+`" alt="..." class="img-responsive" width="200" ></div>
             
             </div>
           </div>
         </td>
-        <td data-th="Price">$1.99</td>
+        <div class="arregloTabla">
+        <td class="text-cente"data-th="Price">`+carrito.unitCost+`</td>
         <td data-th="Quantity">
           <input type="number" class="form-control text-center" value="1">
         </td>
         <td data-th="Subtotal" class="text-center">1.99</td>
+        </tr>
+        </div>
+        `
       
-
-                  `
+                  
 
         document.getElementById("itemsDelCarrito").innerHTML = agregarAlCarrito;
 

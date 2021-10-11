@@ -121,3 +121,8 @@ label.radio input:checked+span {
       font-size: 3.5rem;
     }}
 
+.arregloTabla{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    display:grid
+}
