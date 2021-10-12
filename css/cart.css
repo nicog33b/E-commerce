@@ -1,5 +1,9 @@
 
-
+#payment{
+size:3em;
+margin: 2.5em;
+    
+}
 /*SELECCION DE FORMA DE PAGO Y DATOS PERSONALES.*/
 .payment-info {
     background: cornflowerblue;
@@ -60,14 +64,14 @@ label.radio span {
 
 label.radio input:checked+span {
     border-color: #fff;
-    background-color: blue;
+    background-color:whitesmoke;
     color: #fff
 }
 
 .credit-inputs {
-    background: rgb(102, 102, 221);
+    background: rgb(200, 200, 241);
     color: #fff !important;
-    border-color: rgb(102, 102, 221)
+    border-color: rgb(183, 183, 246)
 }
 
 .credit-inputs::placeholder {
@@ -126,3 +130,11 @@ label.radio input:checked+span {
     margin: auto;
     display:grid
 }
+.t-stroke {
+    color: transparent;
+    -moz-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 2px;
+    -moz-text-stroke-color: #000000;
+    -webkit-text-stroke-color: #ffffff;
+ }
+

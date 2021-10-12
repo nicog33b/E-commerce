@@ -1,11 +1,43 @@
 let arrayCarrito = [];
+let tipoMoneda=0;
 
-agregarItemsAlCarrito = () => {
+calcularSubtotal = (valor1,valor2) =>{
 
+  try {
+  var a = parseFloat(valor1) || 0,
+  b = parseFloat(valor2) || 0;
+  let todo= a*b;
+  
+  }catch (e) {}
+  
+  
+  }
+
+changeCurrencyPrice = () =>{
+
+ let currency = getElementById("selectCurrency")
+
+}
+
+addItemToCart = () => {
+
+let numProd=0;
+//Recorre el json con los productos del carrito y su información.
     let agregarAlCarrito = "";
     for (let i = 0; i < arrayCarrito.length; i++) {
         let carrito = arrayCarrito[i];
-        agregarAlCarrito += `      
+        
+
+//si esta en pesos uruguayos los transforma en dolares.
+        let unitPrice=0;
+        if(carrito.currency==="USD"){
+          unitPrice=carrito.unitCost
+        }else if(carrito.currency="UYU"){
+          unitPrice=(carrito.unitCost/40).toFixed(2);
+        }
+
+        
+         agregarAlCarrito += `      
         <tr id="item">
         <td data-th="Product">
           <div class="row">
@@ -18,18 +50,19 @@ agregarItemsAlCarrito = () => {
           </div>
         </td>
         <div class="arregloTabla">
-        <td class="text-cente"data-th="Price">`+carrito.unitCost+`</td>
+        <td class="text-cente"data-th="Price">`+unitPrice+`<br>`+"USD"+`</td>
         <td data-th="Quantity">
-          <input type="number" class="form-control text-center" value="1">
+          <input id="`+"producto"+numProd+`" type="number" class="form-control text-center" value="1">
         </td>
-        <td data-th="Subtotal" class="text-center">1.99</td>
+        <td id="`+"subtotal"+numProd+`" data-th="Subtotal" class="text-center">`+ +`</td>
         </tr>
         </div>
         `
-      
-                  
 
+                  
+       
         document.getElementById("itemsDelCarrito").innerHTML = agregarAlCarrito;
+        numProd+=1;
 
     }
 
@@ -46,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             buyCarInfo = carrito.data;
             arrayCarrito = carrito.data.articles;
             console.log(arrayCarrito)
-            agregarItemsAlCarrito()
+            addItemToCart ()
+          
 
 
 
