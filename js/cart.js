@@ -1,17 +1,15 @@
 let arrayCarrito = [];
 let tipoMoneda=0;
 
-calcularSubtotal = (valor1,valor2) =>{
 
-  try {
-  var a = parseFloat(valor1) || 0,
-  b = parseFloat(valor2) || 0;
-  let todo= a*b;
-  
-  }catch (e) {}
-  
-  
-  }
+loadCountry = () =>{
+
+  var paises = ["Uruguay", "Chile", "Argentina", "Brasil", "Ecuador","EE.UU","China"];
+  var countrySelect = document.getElementById("countryCart");
+  for(var i=0;i<paises.length;i++){ 
+    countrySelect.options[i] = new option(countrySelect[i]);
+   }
+}
 
 changeCurrencyPrice = () =>{
 
@@ -72,15 +70,15 @@ let numProd=0;
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
+  
 
     getJSONData(CART_INFO2_URL).then(function (carrito) {
         if (carrito.status === "ok") {
             buyCarInfo = carrito.data;
             arrayCarrito = carrito.data.articles;
             console.log(arrayCarrito)
-            addItemToCart ()
-          
+            addItemToCart()
+            loadCountry()
 
 
 
