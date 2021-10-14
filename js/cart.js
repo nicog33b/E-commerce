@@ -1,7 +1,14 @@
 let arrayCarrito = [];
 let tipoMoneda = 0;
 
+   cargarSubtotalItem = () =>{
+    for (var i = 0; i < arrayCarrito.length; i++) {
+var productActual = parseFloat(document.getElementById("producto"[i]).value)
+console.log(productActual)
+  
+    }
 
+   }
 
    loadCountrySelect = () => {
   var departamentos = ["MONTEVIDEO", "ARTIGAS", "CANELONES", "CERRO LARGO", "COLONIA", "DURAZNO", " FLORES", "FLORIDA",
@@ -29,7 +36,7 @@ addItemToCart = () => {
   let agregarAlCarrito = "";
   for (let i = 0; i < arrayCarrito.length; i++) {
     let carrito = arrayCarrito[i];
-
+  
 
     //si esta en pesos uruguayos los transforma en dolares.
     let unitPrice = 0;
@@ -55,7 +62,7 @@ addItemToCart = () => {
         <div class="arregloTabla">
         <td class="text-cente"data-th="Price">`+ unitPrice + `<br>` + "USD" + `</td>
         <td data-th="Quantity">
-          <input id="`+ "producto" + numProd + `" type="number" class="form-control text-center" value="1">
+          <input id="`+ "producto" + numProd + `" oninput="cargarSubtotalItem()" type="number" class="form-control text-center" value="1">
         </td>
         <td id="`+ "subtotal" + numProd + `" data-th="Subtotal" class="text-center">` + +`</td>
         </tr>
