@@ -1,3 +1,7 @@
+#selectSend{
+    display:grid;
+}
+
 #selectCountry{
     margin: auto;
     display:inline-table;
