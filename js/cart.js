@@ -1,19 +1,26 @@
 let arrayCarrito = [];
 let tipoMoneda = 0;
+const premium = 15;
+const express = 7
+const standard = 5;
 
-loadPaymentsInfo = () => {
-  let subtotal=0;
-  for (var i = 0; i < arrayCarrito.length; i++) {
-    let carrito = arrayCarrito[i];
-    subtotal=subtotal+parseFloat(document.getElementById("subtotal" + [i]).value);
-  
-      
 
+
+function clearGroup(elem) {
+  //si uno esta activado los demás estan desactivados.
+  var group = document.getElementsByClassName("checkGroup1");
+  for (var i = 0; i < group.length; i++) {
+    if (group[i] != elem) {
+      group[i].checked = false;
+    }
   }
-  document.getElementById("subtotal").innerHTML =subtotal; 
-
+  //evita que los usuarios dejen desmarcadas todas las opciones de envio.
+  for (var i = 0; i < group.length; i++) {
+    if (group[i].checked!=elem) {
+      elem.checked=true;
+    }
+  }
 }
-
 
 loadItemsSubtotal = () => {
   for (var i = 0; i < arrayCarrito.length; i++) {
@@ -27,19 +34,30 @@ loadItemsSubtotal = () => {
       unitPrice = (carrito.unitCost / 40).toFixed(2);
     }
     document.getElementById("subtotal" + [i]).innerHTML = unitPrice * productActual;
-    
+
 
   }
-  let subtotal=0;
+  let subtotal = 0;
+  let envio=0;
   for (var i = 0; i < arrayCarrito.length; i++) {
 
-    newSubtotal=parseFloat(document.getElementById("subtotal" + [i]).textContent);
-    subtotal=subtotal+newSubtotal;
-    document.getElementById("subtotal").innerHTML="$"+subtotal;
-
+    newSubtotal = parseFloat(document.getElementById("subtotal" + [i]).textContent);
+    subtotal = subtotal + newSubtotal;
+    document.getElementById("subtotal").innerHTML = "$" + subtotal + " USD";
+    if (document.getElementById("standardEnvio").checked) {
+      envio=(subtotal * standard) / 100
+      document.getElementById("envio").innerHTML = envio;
+    } else if (document.getElementById("expressEnvio").checked){
+      envio=(subtotal * express) / 100
+      document.getElementById("envio").innerHTML = envio;
+      } else if (document.getElementById("premiumEnvio").checked) {
+        envio=(subtotal * premium) /100;
+    document.getElementById("envio").innerHTML = envio;
   }
+document.getElementById("total+iva").innerHTML=subtotal+envio;
+document.getElementById("total").innerHTML=subtotal+envio;
+}}
 
-}
 
 loadCountrySelect = () => {
   var departamentos = ["MONTEVIDEO", "ARTIGAS", "CANELONES", "CERRO LARGO", "COLONIA", "DURAZNO", " FLORES", "FLORIDA",
@@ -54,11 +72,6 @@ loadCountrySelect = () => {
 }
 
 
-changeCurrencyPrice = () => {
-
-  let currency = getElementById("selectCurrency")
-
-}
 
 addItemToCart = () => {
 
@@ -113,10 +126,11 @@ addItemToCart = () => {
 
 
 
-
 document.addEventListener("DOMContentLoaded", function (e) {
 
   loadCountrySelect()
+
+
   getJSONData(CART_INFO2_URL).then(function (carrito) {
     if (carrito.status === "ok") {
       buyCarInfo = carrito.data;
@@ -124,7 +138,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
       console.log(arrayCarrito)
       addItemToCart()
       loadItemsSubtotal()
+
+      document.getElementById("premiumEnvio").addEventListener('click', function(){
+
+        loadItemsSubtotal()
+    
+    });
+    document.getElementById("expressEnvio").addEventListener('click', function(){
+      loadItemsSubtotal()
+         
+    });
+    document.getElementById("standardEnvio").addEventListener('click', function(){
+      loadItemsSubtotal()
  
+    });
 
 
 
