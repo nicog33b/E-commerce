@@ -33,7 +33,7 @@ loadItemsSubtotal = () => {
     } else if (carrito.currency = "UYU") {
       unitPrice = (carrito.unitCost / 40).toFixed(2);
     }
-    document.getElementById("subtotal" + [i]).innerHTML = unitPrice * productActual;
+    document.getElementById("subtotal" + [i]).innerHTML = unitPrice * productActual+" USD";
 
 
   }
@@ -46,16 +46,16 @@ loadItemsSubtotal = () => {
     document.getElementById("subtotal").innerHTML = "$" + subtotal + " USD";
     if (document.getElementById("standardEnvio").checked) {
       envio=(subtotal * standard) / 100
-      document.getElementById("envio").innerHTML = envio;
+      document.getElementById("envio").innerHTML = envio+" USD";
     } else if (document.getElementById("expressEnvio").checked){
       envio=(subtotal * express) / 100
-      document.getElementById("envio").innerHTML = envio;
+      document.getElementById("envio").innerHTML = envio+" USD";
       } else if (document.getElementById("premiumEnvio").checked) {
         envio=(subtotal * premium) /100;
-    document.getElementById("envio").innerHTML = envio;
+    document.getElementById("envio").innerHTML = envio+" USD";
   }
-document.getElementById("total+iva").innerHTML=subtotal+envio;
-document.getElementById("total").innerHTML=subtotal+envio;
+document.getElementById("total+iva").innerHTML=subtotal+envio+" USD";
+document.getElementById("total").innerHTML=subtotal+envio+" USD";
 }}
 
 
@@ -104,7 +104,7 @@ addItemToCart = () => {
           </div>
         </td>
         <div class="arregloTabla">
-        <td class="text-cente"data-th="Price">`+ unitPrice + `<br>` + "USD" + `</td>
+        <td class="text-cente"data-th="Price">`+ unitPrice+" " +  " USD" + `</td>
         <td data-th="Quantity">
           <input id="`+ "producto" + numProd + `" min="1" pattern="^[0-9]+" oninput="loadItemsSubtotal()" type="number" class="form-control text-center" value="1">
         </td>

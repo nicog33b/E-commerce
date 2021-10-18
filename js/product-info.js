@@ -5,13 +5,15 @@ llenarTitulo = () => { //rellena el titulo con el nombre del producto
 }
 
 llenarImagenes = () => {
-    //llena con una imagen cada espacio disponible en el carrousel(visor de imagenes.) del producto.
-    document.getElementById("imgProd1").src = productoInfo.images[0]
+    for (var i = 0; i < arrayProducto.length; i++) {
+            document.getElementById("imgProd1").src = productoInfo.images[0]
     document.getElementById("imgProd2").src = productoInfo.images[1]
     document.getElementById("imgProd3").src = productoInfo.images[2]
     document.getElementById("imgProd4").src = productoInfo.images[3]
     document.getElementById("imgProd5").src = productoInfo.images[4]
 }
+}
+
 
 llenarDescripcion = () => {
     //Obtiene la descripcion del producto y rellena el campo destinado.
