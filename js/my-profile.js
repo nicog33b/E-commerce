@@ -1,6 +1,27 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
+
+
+
+
+         $(document).ready(function()
+         {
+           var navItems = $('.admin-menu li > a');
+           var navListItems = $('.admin-menu li');
+           var allWells = $('.admin-content');
+           var allWellsExceptFirst = $('.admin-content:not(:first)');
+           allWellsExceptFirst.hide();
+           navItems.click(function(e)
+           {
+               e.preventDefault();
+               navListItems.removeClass('active');
+               $(this).closest('li').addClass('active');
+               allWells.hide();
+               var target = $(this).attr('data-target-id');
+               $('#' + target).show();
+           });
+           });
+
+           
 document.addEventListener("DOMContentLoaded", function (e) {
 
 });
