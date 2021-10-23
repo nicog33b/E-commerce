@@ -1,3 +1,4 @@
+
 //contiene el array de los productos durante la ejecución.
 let arrProducto = [];
 //según el valor, selecciona un tipo de filtrado.
@@ -39,24 +40,19 @@ function mostrarProductosLista(){
         if (((minimoP== undefined) || (minimoP != undefined && parseInt(product.cost) >= minimoP)) &&
             ((maximoP == undefined) || (maximoP  != undefined && parseInt(product.cost) <= maximoP))){
         agregarHtml += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="row">
-            <div class="col-3">
-                <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-            </div>
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">`+ product.name +`</h4>
-                    <small class="text-muted">` + product.soldCount + ` venididos</small>
-                </div>
-                <div class="d-flex w-100 justify-content-between" >
-                <p class="mb-1">` + product.description + `</p>
-                <p> ` + product.currency + ``+ product.cost +`
-                </p>
-                </div>
-            </div>
-        </div>
-    </a>
+ 
+        <div class="col-md-4">
+        <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+          <img class="bd-placeholder-img card-img-top" src="` + product.imgSrc + `">
+          <h3 id="nameProducto" class="m-3">`+ product.name +`</h3>
+          <div class="card-body">
+            <p class="card-text">` + product.description + `</p>
+            <p id="precioProducto"> ` + product.currency + ``+ product.cost +`
+            </p>
+          </div>
+        </a>
+    </div>
+
     `
             }
         document.getElementById("lista-container").innerHTML = agregarHtml;

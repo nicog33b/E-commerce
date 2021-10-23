@@ -1,3 +1,21 @@
+#nameProducto{
+  text-align:center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#precioProducto{
+font-family: Georgia, 'Times New Roman', Times, serif;
+color:#e77373;
+text-align:center;
+font-size:15px;
+font-weight:456;
+margin-bottom:0;
+border-style: solid;
+border-color: green;
+
+}
+
+
 .imagenProducto{
 padding: .25rem;
 background-color:azure;
