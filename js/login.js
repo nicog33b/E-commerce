@@ -6,7 +6,6 @@ const contraseña = document.getElementById("contraseña");
 
 
 
-
 formularioUsuario.addEventListener("submit", function (evento) {
   /*Evita que la pagina se recargue automaticamente.*/
   evento.preventDefault();
@@ -14,8 +13,12 @@ formularioUsuario.addEventListener("submit", function (evento) {
   //El array users va contener los datos ingresados del usuario.   
   let users = Array({
     usuario: username.value,
-    pass: contraseña.value
-  });
+    pass: contraseña.value,
+    name:"",
+    email:"",
+    edad:"",
+    phone:""
+     });
 
   //Visualizar los datos del usuario ingresado.   
   console.log(users);
