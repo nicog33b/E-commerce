@@ -2,7 +2,15 @@
     display:grid;
     margin:1em;
 }
+#bodyModal{
+    background-color:cornflowerblue;;
+}
+#buttonMethodPay{
+    display:grid;
+    font-size: 1.2em;
+    align-content: center;
 
+}
 #selectCountry{
     margin: auto;
     display:inline-table;

@@ -111,7 +111,57 @@
       </div>
     </div>
     <div class="col-md-4">
-<form id="paymentInfo">
+
+      <form id="paymentInfo">
+        <button id="buttonMethodPay" type="button" class="btn btn-primary btn-block d-flex justify-content-between mt-3" data-toggle="modal"
+          data-target="#exampleModalLong">¿Como pagar? <label class="radio"> <span><img width="30"
+                src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+          <label class="radio"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
+          </label>
+          <label class="radio"> <span><img width="30"
+                src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label></button>
+
+        <hr class="line">
+        <div class="form-check form-check-inline">
+          <input class="checkGroup1" type="checkbox" id="premiumEnvio" value="option1" onclick="clearGroup(this)">
+          <label class="d-flex justify-content-between information" for="inlineCheckbox1">Premium</label>
+          <span>(2-5 días)</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="checkGroup1" type="checkbox" id="expressEnvio" value="option2" onclick="clearGroup(this)">
+          <label class="d-flex justify-content-between information" for="inlineCheckbox2">Express</label>
+          <span>(5-8 días)</span>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="checkGroup1" type="checkbox" id="standardEnvio" value="option3" onclick="clearGroup(this)"
+            checked>
+          <label class="d-flex justify-content-between information" for="inlineCheckbox3">Standard</label>
+          <span>(12 a 15 días)</span>
+        </div>
+        <hr class="line">
+        <div class="d-flex justify-content-between information"><span>Subtotal</span><span id="subtotal"></span>
+        </div>
+        <div class="d-flex justify-content-between information"><span>Envío</span><span id="envio">$20.00</span></div>
+        <div class="d-flex justify-content-between information"><span>Total(Incl. Envío)</span><span
+            id="total+iva">$3020.00</span>
+        </div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="submit"><span
+            id="total">$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+        <br>
+        <div id="location">
+          <img src="img/envio.png" width="25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <select id="selectCountry" class="form-select" aria-label="Disabled select example"></select>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </form>
+
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="bodyModal" class="modal-content">
       <div id="payment" class="payment-info">
         <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
               src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
@@ -129,42 +179,14 @@
           <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
               class="form-control credit-inputs" placeholder="342" required></div>
         </div>
-        <div><label class="credit-card-label">Envío</label>
-          <br>
-                 <div class="form-check form-check-inline">
-            <input class="checkGroup1" type="checkbox" id="premiumEnvio" value="option1" onclick="clearGroup(this)">
-            <label class="d-flex justify-content-between information" for="inlineCheckbox1">Premium</label>
-            <span>(2-5 días)</span>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="checkGroup1" type="checkbox" id="expressEnvio" value="option2" onclick="clearGroup(this)">
-            <label class="d-flex justify-content-between information" for="inlineCheckbox2">Express</label>
-            <span>(5-8 días)</span>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="checkGroup1" type="checkbox" id="standardEnvio" value="option3" onclick="clearGroup(this)" checked>
-            <label class="d-flex justify-content-between information" for="inlineCheckbox3">Standard</label>
-            <span>(12 a 15 días)</span>
-          </div>
-           <hr class="line">
-        <div class="d-flex justify-content-between information"><span>Subtotal</span><span id="subtotal"></span> 
         </div>
-        <div class="d-flex justify-content-between information"><span>Envío</span><span id="envio">$20.00</span></div>
-        <div class="d-flex justify-content-between information"><span>Total(Incl. Envío)</span><span
-            id="total+iva">$3020.00</span>
-        </div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="submit"><span
-            id="total">$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
-        <br>
-        <div id="location">
-          <img src="img/envio.png" width="25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select id="selectCountry" class="form-select" aria-label="Disabled select example"></select>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
-  </div>
-</form>
-
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
