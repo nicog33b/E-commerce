@@ -127,9 +127,16 @@ deleteItem = (b) => {
   //obtiene el id del boton que fue clickeado.
   //replace usando una expresion regular obtenemos el numero que corresponde al item del carrito.
 id=b.id.replace(/[^0-9]/g,'');
+
 //Eliminamos el item seleccionado de html.
 idToDelete="item"+id;
+subtotalToDelete="subtotal"+id
+removePrice=parseFloat(document.getElementById(subtotalToDelete).textContent)
+console.log(document.getElementById("total+iva").textContent)
 document.getElementById(idToDelete).innerHTML="";
+
+
+
 }
 
 
