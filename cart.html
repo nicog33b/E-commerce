@@ -71,88 +71,74 @@
               <table id="cart" class="table table-hover table-condensed">
                 <thead>
                   <tr>
-                    <th style="width:50%">Product</th>
+                    <th style="width:45%">Product</th>
                     <th id="selectCurrency" style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
-                    <th style="width:10%"></th>
+                    <th style="width:5.1%">Quantity</th>
+                    <th style="width:10%">Delete</th>
+                    <th style="width:15%" class="text-center">Subtotal</th>
+                    
                   </tr>
                 </thead>
                 <tbody id="itemsDelCarrito">
-                  <tr id="item">
-                    <td data-th="Product">
-                      <div class="row">
-                        <h5 class="nomargin">&nbsp;&nbsp;&nbsp;</h4>
+              
 
-                          <div class="col-sm-10">
-                            <div class="col-sm-2 hidden-xs"><img src="" alt="..." class="img-responsive" width="200">
-                            </div>
-
-                          </div>
-                      </div>
-                    </td>
-                    <div class="arregloTabla">
-                      <td class="text-cente" data-th="Price">
-                      <td>
-                      <td data-th="Quantity">
-                        <input type="number" class="form-control text-center" value="1">
-                      </td>
-                      <td data-th="Subtotal" class="text-center"></td>
                   </tr>
-            </div>
-            </tbody>
-            <div>
+
+                </tbody>
+                <div>
+
+                </div>
+              </table>
 
             </div>
-            </table>
-
+          </span>
         </div>
-        </span>
+      </div>
+      <div class="col-md-4">
+
+        <form id="paymentInfo">
+          <button id="buttonMethodPay" type="button"
+            class="btn btn-primary btn-block d-flex justify-content-between mt-3" data-toggle="modal"
+            data-target="#exampleModalLong">¿Como pagar? <label class="radio"> <span><img width="30"
+                  src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+            <label class="radio"> <span><img width="30"
+                  src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
+            </label>
+            <label class="radio"> <span><img width="30"
+                  src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label></button>
+
+          <hr class="line">
+          <div class="form-check form-check-inline">
+            <input class="checkGroup1" type="checkbox" id="premiumEnvio" value="option1" onclick="clearGroup(this)">
+            <label class="d-flex justify-content-between information" for="inlineCheckbox1">Premium</label>
+            <span>(2-5 días)</span>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="checkGroup1" type="checkbox" id="expressEnvio" value="option2" onclick="clearGroup(this)">
+            <label class="d-flex justify-content-between information" for="inlineCheckbox2">Express</label>
+            <span>(5-8 días)</span>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="checkGroup1" type="checkbox" id="standardEnvio" value="option3" onclick="clearGroup(this)"
+              checked>
+            <label class="d-flex justify-content-between information" for="inlineCheckbox3">Standard</label>
+            <span>(12 a 15 días)</span>
+          </div>
+          <hr class="line">
+          <div class="d-flex justify-content-between information"><span>Subtotal</span><span id="subtotal"></span>
+          </div>
+          <div class="d-flex justify-content-between information"><span>Envío</span><span id="envio">$20.00</span></div>
+          <div class="d-flex justify-content-between information"><span>Total(Incl. Envío)</span><span
+              id="total+iva">$3020.00</span>
+          </div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="submit"><span
+              id="total">$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+          <br>
+          <div id="location">
+            <img src="img/envio.png" width="25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select id="selectCountry" class="form-select" aria-label="Disabled select example"></select>
+          </div>
       </div>
     </div>
-    <div class="col-md-4">
-
-      <form id="paymentInfo">
-        <button id="buttonMethodPay" type="button" class="btn btn-primary btn-block d-flex justify-content-between mt-3" data-toggle="modal"
-          data-target="#exampleModalLong">¿Como pagar? <label class="radio"> <span><img width="30"
-                src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
-          <label class="radio"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
-          </label>
-          <label class="radio"> <span><img width="30"
-                src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label></button>
-
-        <hr class="line">
-        <div class="form-check form-check-inline">
-          <input class="checkGroup1" type="checkbox" id="premiumEnvio" value="option1" onclick="clearGroup(this)">
-          <label class="d-flex justify-content-between information" for="inlineCheckbox1">Premium</label>
-          <span>(2-5 días)</span>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="checkGroup1" type="checkbox" id="expressEnvio" value="option2" onclick="clearGroup(this)">
-          <label class="d-flex justify-content-between information" for="inlineCheckbox2">Express</label>
-          <span>(5-8 días)</span>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="checkGroup1" type="checkbox" id="standardEnvio" value="option3" onclick="clearGroup(this)"
-            checked>
-          <label class="d-flex justify-content-between information" for="inlineCheckbox3">Standard</label>
-          <span>(12 a 15 días)</span>
-        </div>
-        <hr class="line">
-        <div class="d-flex justify-content-between information"><span>Subtotal</span><span id="subtotal"></span>
-        </div>
-        <div class="d-flex justify-content-between information"><span>Envío</span><span id="envio">$20.00</span></div>
-        <div class="d-flex justify-content-between information"><span>Total(Incl. Envío)</span><span
-            id="total+iva">$3020.00</span>
-        </div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="submit"><span
-            id="total">$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
-        <br>
-        <div id="location">
-          <img src="img/envio.png" width="25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select id="selectCountry" class="form-select" aria-label="Disabled select example"></select>
-        </div>
-    </div>
-  </div>
   </div>
   </div>
   </form>
@@ -162,23 +148,23 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div id="bodyModal" class="modal-content">
-      <div id="payment" class="payment-info">
-        <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
-              src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-              src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-              src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
-        <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs"
-            placeholder="Name" required></div>
-        <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs"
-            placeholder="0000 0000 0000 0000" required></div>
-        <div class="row">
-          <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text"
-              class="form-control credit-inputs" placeholder="12/24" required></div>
-          <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
-              class="form-control credit-inputs" placeholder="342" required></div>
-        </div>
+        <div id="payment" class="payment-info">
+          <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
+                src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+          <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+          <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+          <div><label class="credit-card-label">Name on card</label><input type="text"
+              class="form-control credit-inputs" placeholder="Name" required></div>
+          <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs"
+              placeholder="0000 0000 0000 0000" required></div>
+          <div class="row">
+            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text"
+                class="form-control credit-inputs" placeholder="12/24" required></div>
+            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
+                class="form-control credit-inputs" placeholder="342" required></div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

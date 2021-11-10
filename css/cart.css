@@ -1,3 +1,8 @@
+#removeItem{
+margin-left:1em;
+color: red;
+}
+
 #selectSend{
     display:grid;
     margin:1em;
@@ -25,12 +30,14 @@
 }
 
 #payment{
+
 size:3em;
 margin: 3.3em;
 }
 
 /*SELECCION DE FORMA DE PAGO Y DATOS PERSONALES.*/
 .payment-info {
+    
     background: cornflowerblue;
     padding: 10px;
     border-radius: 6px;
