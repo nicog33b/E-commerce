@@ -1,3 +1,4 @@
+"use strict";
 //obtiene usuario logeado
 const userOn = document.getElementById("usuario");
 //obtiene el boton que cierra la sesion.

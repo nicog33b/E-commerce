@@ -1,4 +1,4 @@
-let arrayProducto=[]
+"use strict";
 let arrayFiltro=[]
 llenarTitulo = () => { //rellena el titulo con el nombre del producto
     document.getElementById("nombreProducto").innerText = productoInfo.name;

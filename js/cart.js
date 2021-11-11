@@ -1,3 +1,4 @@
+"use strict";
 let arrayCarrito = [];
 let tipoMoneda = 0;
 const premium = 15;
@@ -22,7 +23,7 @@ function clearGroup(elem) {
   }
 }
 
-loadItemsSubtotal = () => {
+let loadItemsSubtotal = () => {
   for (var i = 0; i < arrayCarrito.length; i++) {
     let carrito = arrayCarrito[i];
     var productActual = parseFloat(document.getElementById("producto" + [i]).value)
@@ -41,8 +42,8 @@ loadItemsSubtotal = () => {
   let envio = 0;
   for (var i = 0; i < arrayCarrito.length; i++) {
 
-    newSubtotal = parseFloat(document.getElementById("subtotal" + [i]).textContent);
-    subtotal = subtotal + newSubtotal;
+   let newSubtotal = parseFloat(document.getElementById("subtotal" + [i]).textContent);
+   subtotal = subtotal + newSubtotal;
     document.getElementById("subtotal").innerHTML = "$" + subtotal + " USD";
     if (document.getElementById("standardEnvio").checked) {
       envio = (subtotal * standard) / 100
@@ -60,7 +61,7 @@ loadItemsSubtotal = () => {
 }
 
 
-loadCountrySelect = () => {
+let loadCountrySelect = () => {
   var departamentos = ["MONTEVIDEO", "ARTIGAS", "CANELONES", "CERRO LARGO", "COLONIA", "DURAZNO", " FLORES", "FLORIDA",
     " LAVALLEJA", "MALDONADO", "PAYSANDU", "RIO NEGRO"]; //array de los departamentos.
   var select = document.getElementById("selectCountry"); //Seleccionamos el select
@@ -74,7 +75,7 @@ loadCountrySelect = () => {
 
 
 
-addItemToCart = () => {
+let addItemToCart = () => {
 
   let numProd = 0;
   //Recorre el json con los productos del carrito y su información.
@@ -123,18 +124,22 @@ addItemToCart = () => {
   }
 }
 
-deleteItem = (b) => {
+let deleteItem = (b) => {
   //obtiene el id del boton que fue clickeado.
   //replace usando una expresion regular obtenemos el numero que corresponde al item del carrito.
-id=b.id.replace(/[^0-9]/g,'');
+let id=b.id.replace(/[^0-9]/g,'');
 
 //Eliminamos el item seleccionado de html.
-idToDelete="item"+id;
-subtotalToDelete="subtotal"+id
-removePrice=parseFloat(document.getElementById(subtotalToDelete).textContent)
+let idToDelete="item"+id;
+let subtotalToDelete="subtotal"+id
+let index=1;
+arrayCarrito.splice(id,index)
+
+let removePrice=parseFloat(document.getElementById(subtotalToDelete).textContent)
 console.log(document.getElementById("total+iva").textContent)
 document.getElementById(idToDelete).innerHTML="";
-
+addItemToCart()
+loadItemsSubtotal()
 
 
 }
@@ -147,24 +152,26 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   getJSONData(CART_INFO2_URL).then(function (carrito) {
     if (carrito.status === "ok") {
-      buyCarInfo = carrito.data;
+      let buyCarInfo = carrito.data;
       arrayCarrito = carrito.data.articles;
       console.log(arrayCarrito)
       addItemToCart()
       loadItemsSubtotal()
 
       document.getElementById("premiumEnvio").addEventListener('click', function () {
-
+        addItemToCart()
         loadItemsSubtotal()
-
+     
       });
       document.getElementById("expressEnvio").addEventListener('click', function () {
+        addItemToCart()
         loadItemsSubtotal()
-
+     
       });
       document.getElementById("standardEnvio").addEventListener('click', function () {
+        addItemToCart()
         loadItemsSubtotal()
-
+   
       });
 
 

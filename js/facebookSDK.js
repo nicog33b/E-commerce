@@ -1,3 +1,5 @@
+"use strict";
+
 function statusChangeCallback(response) {  
     console.log(response);                   
   if (response.status === 'connected') {  

@@ -1,3 +1,5 @@
+"use strict";
+
 let puntaje=0;
 
 let nroEstrellas= [`<span  class="fa fa-star checked"></span>

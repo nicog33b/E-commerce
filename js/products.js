@@ -1,4 +1,4 @@
-
+"use strict";
 //contiene el array de los productos durante la ejecución.
 let arrProducto = [];
 //según el valor, selecciona un tipo de filtrado.

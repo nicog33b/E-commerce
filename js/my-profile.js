@@ -1,3 +1,4 @@
+"use strict";
 //cambios de password.
 const newPass = document.getElementById("new_password");
 const confirmPass = document.getElementById("confirm_password");
