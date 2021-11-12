@@ -1,7 +1,7 @@
 "use strict";
 //Constantes.
 const formularioUsuario = document.getElementById("formLogin");
-const username = document.getElementById("correo");
+var username = document.getElementById("correo");
 const contraseña = document.getElementById("contraseña");
 
 

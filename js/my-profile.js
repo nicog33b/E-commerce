@@ -79,14 +79,14 @@ document.getElementById("saveChanges").addEventListener("click", function () {
   }
 });
 
-profileDate = () => {
+let profileDate = () => {
   nameP.textContent = username[0].name;
   emailP.textContent = username[0].usuario;
   ageP.textContent = username[0].age;
   phoneP.textContent = username[0].phone;
 }
 
-blockEnter = () => {
+let blockEnter = () => {
 
   nameP.addEventListener('keypress', (e) => {
     if (e.which === 13) e.preventDefault();

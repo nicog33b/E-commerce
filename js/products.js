@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         if (resultObj.status === "ok"){
             hideSpinner();
             arrProducto= resultObj.data;
-            arrProductoLimpio=resultObj.data;
+            let arrProductoLimpio=resultObj.data;
             mostrarProductosLista(arrProductoLimpio);
         
            
