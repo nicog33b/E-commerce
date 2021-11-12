@@ -4,7 +4,10 @@ let tipoMoneda = 0;
 const premium = 15;
 const express = 7
 const standard = 5;
-
+let nameBuy = undefined;
+let dateBuy = undefined;
+let cardBuy = undefined;
+let cvvBuy = undefined;
 
 
 function clearGroup(elem) {
@@ -134,20 +137,34 @@ let idToDelete="item"+id;
 let subtotalToDelete="subtotal"+id
 let index=1;
 arrayCarrito.splice(id,index)
-
-let removePrice=parseFloat(document.getElementById(subtotalToDelete).textContent)
-console.log(document.getElementById("total+iva").textContent)
-document.getElementById(idToDelete).innerHTML="";
 addItemToCart()
 loadItemsSubtotal()
+}
 
+let saveUserPayDate = () =>{
+//La funcion cumple la tarea de guardar la informacion sobre el metodo de pago del usuario.
+nameBuy = document.getElementById("nameBuy").value
+dateBuy = document.getElementById("dateBuy").value
+cardBuy = document.getElementById("cardBuy").value 
+cvvBuy = document.getElementById("cvvBuy").value
 
 }
 
+let methodSuccessfull= () => {
+
+let buttonMethodPay = document.getElementById("buttonMethodPay")
+if(nameBuy && dateBuy && cardBuy && cvvBuy !=  "" ){
+  buttonMethodPay.style.backgroundColor="#3d9e3a"
+}else{
+  buttonMethodPay.style.backgroundColor="cornflowerblue";
+}
+
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
   loadCountrySelect()
+
 
 
   getJSONData(CART_INFO2_URL).then(function (carrito) {
@@ -158,6 +175,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
       addItemToCart()
       loadItemsSubtotal()
 
+
+//obtener la informaciòn sobre el metodo de compra del usuario.
+      document.getElementById("save").addEventListener('click', function () {
+        saveUserPayDate()
+        testDate() 
+      });
+
+//Arreglo para evitar errores en los resultados.
       document.getElementById("premiumEnvio").addEventListener('click', function () {
         addItemToCart()
         loadItemsSubtotal()
