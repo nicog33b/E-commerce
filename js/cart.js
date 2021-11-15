@@ -140,17 +140,21 @@ let id=b.id.replace(/[^0-9]/g,'');
 let idToDelete="item"+id;
 let subtotalToDelete="subtotal"+id
 
-console.log(id)
+//Elimina la seccion del item correspondiente a su id en el carrito.
 document.getElementById(idToDelete).innerHTML="";
+//Elimina por indice el elemento dentro del array.
 arrayCarrito.splice(id,1)
-console.log(arrayCarrito)
+//Vuelve a cargar los datos de los items.
 addItemToCart()
 loadItemsSubtotal()
+
+//Arreglo por si se elimina el ultimo objeto en el array.
 if(arrayCarrito.length===0){
   document.getElementById("total+iva").textContent="0"
   document.getElementById("subtotal").textContent="0"
   document.getElementById("envio").textContent="0"
   document.getElementById("total").textContent="0"
+  
 }
 }
 
@@ -167,8 +171,10 @@ numberBuy = document.getElementById("numberBuy").value
 
 let methodSuccessfull= () => {
 
-
-if(nameBuy && dateBuy && cardBuy && cvvBuy && calleBuy && esquinaBuy && numberBuy !=  ""){
+if(arrayCarrito.length===0){
+//evitar que se pueda procesar la compra sin items en el carrito.
+}else{
+if(nameBuy && dateBuy && cardBuy && cvvBuy && calleBuy && esquinaBuy && numberBuy != ""){
   buttonMethodPay.style.backgroundColor="#3d9e3a"
   document.getElementById("buttonCheckout").disabled=""
   completeToProcess=1;
@@ -177,14 +183,17 @@ if(nameBuy && dateBuy && cardBuy && cvvBuy && calleBuy && esquinaBuy && numberBu
   document.getElementById("buttonCheckout").disabled="true";
   completeToProcess=0;
 }
+}
 
 }
 
 let closeBuy=()=>{
+  //Utilizado con el setTimeout en completeProcess()
   location.href = "main.html";
 }
 
 let completeProcess = () => {
+  //Si la compra esta lista para ser procesada realizara la alerta correspondiente.
  if( completeToProcess===1) {
    document.getElementById("ventanaMainCart").innerHTML=`
    <div class="alert alert-success" role="alert">
