@@ -8,6 +8,11 @@ let nameBuy = undefined;
 let dateBuy = undefined;
 let cardBuy = undefined;
 let cvvBuy = undefined;
+let calleBuy = undefined;
+let esquinaBuy = undefined;
+let numberBuy = undefined;
+let buttonMethodPay = document.getElementById("buttonMethodPay")
+let completeToProcess=0;
 
 
 function clearGroup(elem) {
@@ -65,8 +70,7 @@ let loadItemsSubtotal = () => {
 
 
 let loadCountrySelect = () => {
-  var departamentos = ["MONTEVIDEO", "ARTIGAS", "CANELONES", "CERRO LARGO", "COLONIA", "DURAZNO", " FLORES", "FLORIDA",
-    " LAVALLEJA", "MALDONADO", "PAYSANDU", "RIO NEGRO"]; //array de los departamentos.
+  var departamentos = ["Uruguay", "Chile", "Argentina", "Brasil", "Colombia", "Ecuador", "Estados unidos "]; //array de los departamentos.
   var select = document.getElementById("selectCountry"); //Seleccionamos el select
 
   for (var i = 0; i < departamentos.length; i++) {
@@ -135,10 +139,19 @@ let id=b.id.replace(/[^0-9]/g,'');
 //Eliminamos el item seleccionado de html.
 let idToDelete="item"+id;
 let subtotalToDelete="subtotal"+id
-let index=1;
-arrayCarrito.splice(id,index)
+
+console.log(id)
+document.getElementById(idToDelete).innerHTML="";
+arrayCarrito.splice(id,1)
+console.log(arrayCarrito)
 addItemToCart()
 loadItemsSubtotal()
+if(arrayCarrito.length===0){
+  document.getElementById("total+iva").textContent="0"
+  document.getElementById("subtotal").textContent="0"
+  document.getElementById("envio").textContent="0"
+  document.getElementById("total").textContent="0"
+}
 }
 
 let saveUserPayDate = () =>{
@@ -147,21 +160,46 @@ nameBuy = document.getElementById("nameBuy").value
 dateBuy = document.getElementById("dateBuy").value
 cardBuy = document.getElementById("cardBuy").value 
 cvvBuy = document.getElementById("cvvBuy").value
-
+calleBuy = document.getElementById("calleBuy").value
+esquinaBuy = document.getElementById("esquinaBuy").value
+numberBuy = document.getElementById("numberBuy").value
 }
 
 let methodSuccessfull= () => {
 
-let buttonMethodPay = document.getElementById("buttonMethodPay")
-if(nameBuy && dateBuy && cardBuy && cvvBuy !=  "" ){
+
+if(nameBuy && dateBuy && cardBuy && cvvBuy && calleBuy && esquinaBuy && numberBuy !=  ""){
   buttonMethodPay.style.backgroundColor="#3d9e3a"
+  document.getElementById("buttonCheckout").disabled=""
+  completeToProcess=1;
 }else{
   buttonMethodPay.style.backgroundColor="cornflowerblue";
+  document.getElementById("buttonCheckout").disabled="true";
+  completeToProcess=0;
 }
 
 }
 
+let closeBuy=()=>{
+  location.href = "main.html";
+}
+
+let completeProcess = () => {
+ if( completeToProcess===1) {
+   document.getElementById("ventanaMainCart").innerHTML=`
+   <div class="alert alert-success" role="alert">
+¡Felicidades por realizar su compra correctamente!
+</div>
+ </div>`
+ setTimeout(closeBuy,3000);
+}
+}
+
+
+
+ 
 document.addEventListener("DOMContentLoaded", function (e) {
+
 
   loadCountrySelect()
 
@@ -176,10 +214,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
       loadItemsSubtotal()
 
 
+
+      document.getElementById("buttonCheckout").addEventListener('click', function () {
+        completeProcess()
+      });
 //obtener la informaciòn sobre el metodo de compra del usuario.
       document.getElementById("save").addEventListener('click', function () {
         saveUserPayDate()
-        testDate() 
+        methodSuccessfull()     
       });
 
 //Arreglo para evitar errores en los resultados.
