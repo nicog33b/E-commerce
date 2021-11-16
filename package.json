@@ -1,0 +1,27 @@
+{
+  "name": "entrega8",
+  "version": "1.0.0",
+  "description": "Prueba de base de datos con node y express.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon serverExpress.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reptilcuantico99/E-commerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reptilcuantico99/E-commerce/issues"
+  },
+  "homepage": "https://github.com/reptilcuantico99/E-commerce#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
